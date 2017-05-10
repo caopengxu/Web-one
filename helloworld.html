@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-</head>
-<body>
 
+</head>
+<body ng-app="myApp" ng-controller="DemoController">
+    <div>
+        <h1>使用ng实现双边数据绑定</h1>
+        <p><input type="text" placeholder="姓名" ng-model="user.name"></p>
+        <p>hello <strong>{{user.name}}</strong></p>
+    </div>
+
+    <div>
+        <h1>使用ng实现双边数据绑定</h1>
+        <p><input type="text" placeholder="姓名" ng-model="user.name"></p>
+        <p>hello <strong>{{user.name}}</strong></p>
+    </div>
+
+    <input type="button" ng-click="show()">
+
+
+    <script src="bower_components/angular/angular.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+//        app.controller('DemoController', function ($scope) {
+//            $scope.user = {};
+//            $scope.user.name = 'lala';
+//            $scope.show = function () {
+//                console.log($scope.user.name);
+//            }
+//        });
+        app.controller('DemoController', ['$scope', function (a) {
+            a.user = {};
+            a.user.name = 'lala';
+            a.show = function () {
+                console.log(a.user.name);
+            }
+        }]);
+    </script>
 </body>
 </html>
